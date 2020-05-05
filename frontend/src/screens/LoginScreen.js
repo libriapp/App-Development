@@ -1,10 +1,11 @@
 import React, {Component, useState} from 'react';
+import {NavigationContainer} from "@react-navigation/native";
 import { StyleSheet, Text, View, Image, KeyboardAvoidingView, TextInput, TouchableOpacity, StatusBar, Button, Alert } from 'react-native';
 export default class LoginScreen extends Component {
     state = {
-        username: 'libriapp1',
-        password: 'Libri123!',
-        email: 'libriapp1@gmail.com',
+        username: 'q',
+        password: 'q',
+        email: 'q',
         inputUsername: '',
         inputPassword:'',
     }
@@ -15,10 +16,10 @@ export default class LoginScreen extends Component {
     };
     clickHandler = () => {
            if ((this.state.inputUsername == this.state.username) && (this.state.inputPassword == this.state.password)) {
-            //navigation to next screen
+            this.props.navigation.navigate('Search');
            }
            else if ((this.state.inputUsername == this.state.email) && (this.state.inputPassword == this.state.password)) {
-            //navigation to next screen
+            this.props.navigation.navigate('Search');
            }
            else {
             Alert.alert('OOPS', 'Incorrect Username or Password', [

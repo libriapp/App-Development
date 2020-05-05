@@ -1,22 +1,20 @@
-/*import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from "@react-navigation/stack";*/
+import { createStackNavigator } from "@react-navigation/stack";
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import LoginScreen from './src/screens/LoginScreen'
-export default class App extends Component{
-  render() {
-    return (
-      <LoginScreen />
-    );
-  }
-}
+import TextbookSearch from './src/screens/TextbookSearch';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'yellow',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Search" component={TextbookSearch} />
+        </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+export default App
