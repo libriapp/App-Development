@@ -1,6 +1,7 @@
 import React, {Component, useState} from 'react';
 import { StyleSheet, Text, View, Image, KeyboardAvoidingView, TextInput, TouchableOpacity, StatusBar, Button, Alert } from 'react-native';
 import {NavigationContainer} from "@react-navigation/native";
+import FlatButton from "../components/FlatButton";
 export default class AcountInfo extends Component {
     state = {
         email: '',
@@ -21,7 +22,7 @@ export default class AcountInfo extends Component {
             [stateObject]: text,
         });
     };
-    clickHandler = () => {
+    clickHandler1 = () => {
         if ((this.state.email !== this.state.empty) && (this.state.phoneNumber !== this.state.empty) && (this.state.address !== this.state.empty)&& (this.state.creditCard !== this.state.empty)&& (this.state.zipCode !== this.state.empty)&& (this.state.state !== this.state.empty)&& (this.state.expirationDate !== this.state.empty)&& (this.state.cvv !== this.state.empty)) {
          this.props.navigation.navigate('Search');
         }
@@ -30,6 +31,9 @@ export default class AcountInfo extends Component {
              {text: 'Try Again', onPress: () => console.log('alert closed')}
          ]);
      }
+    }
+    clickHandler2 = () => {
+         this.props.navigation.navigate('Search');
     }
     render() {
         return(
@@ -51,7 +55,6 @@ export default class AcountInfo extends Component {
                     placeholder = "Email"
                     placeholderTextColor = "rgba(255,255,255,0.7)"
                     returnKeyType = "next"
-                    onSubmitEditing = {() => this.passwordInput.focus()}
                     keyboardType = 'email-address'
                     autoCapitalize = "none"
                     autoCorrect = {false}
@@ -71,7 +74,6 @@ export default class AcountInfo extends Component {
                     placeholder = "Address"
                     placeholderTextColor = "rgba(255,255,255,0.7)"
                     returnKeyType = "next"
-                    onSubmitEditing = {() => this.passwordInput.focus()}
                     autoCapitalize = "none"
                     autoCorrect = {false}
                     style = {styles.input}
@@ -127,12 +129,18 @@ export default class AcountInfo extends Component {
                 /> 
             </View>
                 <View style = {styles.buttonContainer}>
-                    <Button
-                        style = {styles.buttonText}
-                        title = 'Checkout'
-                        onPress = {this.clickHandler}
-                        color = '#DA3A3A'
-                    />
+                    <View style = {styles.button1}>
+                        <FlatButton
+                            text = 'Back'
+                            onPress = {this.clickHandler2}
+                        />
+                    </View>
+                    <View style = {styles.button2}>
+                        <FlatButton
+                            text = 'Checkout'
+                            onPress = {this.clickHandler1}
+                        />
+                    </View>
                 </View>
             </View>
         </KeyboardAvoidingView>
@@ -186,7 +194,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     input: {
-        height: 45,
+        height: 42,
         width: 350,
         backgroundColor: 'rgba(255,255,255,0.2)',
         marginBottom: 20,
@@ -196,7 +204,7 @@ const styles = StyleSheet.create({
         marginTop:0,
     },
     input2: {
-        height: 45,
+        height: 42,
         width: 165,
         backgroundColor: 'rgba(255,255,255,0.2)',
         marginBottom: 20,
@@ -211,10 +219,18 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     buttonContainer: {
-        height: 40,
         width: 350,
-        marginTop: 20,
+        marginTop: 5,
         marginBottom: 30,
+        flexDirection: 'row',
+    },
+    button1: {
+        flex: 1,
+        marginRight: 8,
+    },
+    button2: {
+        flex: 1,
+        marginLeft: 8,
     },
     textbookInfoContainer: {
 

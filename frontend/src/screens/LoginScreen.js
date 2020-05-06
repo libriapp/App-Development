@@ -1,5 +1,6 @@
 import React, {Component, useState} from 'react';
 import {NavigationContainer} from "@react-navigation/native";
+import FlatButton from "../components/FlatButton";
 import { StyleSheet, Text, View, Image, KeyboardAvoidingView, TextInput, TouchableOpacity, StatusBar, Button, Alert } from 'react-native';
 export default class LoginScreen extends Component {
     state = {
@@ -66,11 +67,9 @@ render () {
                     onChangeText={(text) => this.onChangeText('inputPassword', text)}
                 /> 
                 <TouchableOpacity style =  {styles.buttonContainer}>
-                    <Button
-                        style = {styles.buttonText}
-                        title = 'Login'
+                    <FlatButton
+                        text = 'Login'
                         onPress = {this.clickHandler}
-                        color = '#DA3A3A'
                     />
                 </TouchableOpacity>
             </View>
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexGrow: 1,
     justifyContent: 'center',
-    marginBottom: 60,
+    marginBottom: 20,
   },
   logo: {
       width: 200,
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
   },
   header: {
     textAlign: 'center',
-    marginTop: 40,
+    marginTop: 70,
   },
   headerText: {
       fontWeight: 'bold',
@@ -124,7 +123,7 @@ const styles = StyleSheet.create({
     marginTop:0,
     },
     buttonContainer: {
-        marginBottom: 30,
+        marginBottom: 70,
     },
     buttonText: {
         textAlign: 'center',
