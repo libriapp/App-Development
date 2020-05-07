@@ -13,7 +13,7 @@ export default class AcountInfo extends Component {
         expirationDate: '',
         cvv: '',
         textbookName: 'Campbell Biology 11th Edition',
-        textbookPrice: '$31.99',
+        textbookPrice: '$67.99',
         empty:'',
 
     }
@@ -24,7 +24,7 @@ export default class AcountInfo extends Component {
     };
     clickHandler1 = () => {
         if ((this.state.email !== this.state.empty) && (this.state.phoneNumber !== this.state.empty) && (this.state.address !== this.state.empty)&& (this.state.creditCard !== this.state.empty)&& (this.state.zipCode !== this.state.empty)&& (this.state.state !== this.state.empty)&& (this.state.expirationDate !== this.state.empty)&& (this.state.cvv !== this.state.empty)) {
-         this.props.navigation.navigate('Search');
+         this.props.navigation.navigate('Confirmed');
         }
         else {
          Alert.alert('Missing Field', 'Please fill out all fields', [
@@ -33,7 +33,7 @@ export default class AcountInfo extends Component {
      }
     }
     clickHandler2 = () => {
-         this.props.navigation.navigate('Search');
+         this.props.navigation.navigate('TextbookInfo');
     }
     render() {
         return(
@@ -137,7 +137,7 @@ export default class AcountInfo extends Component {
                     </View>
                     <View style = {styles.button2}>
                         <FlatButton
-                            text = 'Checkout'
+                            text = 'Confirm Order'
                             onPress = {this.clickHandler1}
                         />
                     </View>
