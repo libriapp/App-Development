@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, Component } from "react";
 import debounce from "debounce";
 import "../styles/styles.css";
 import {searchBooks } from "../components/SearchHelper";

@@ -16,8 +16,8 @@ function App() {
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Search" component={TextbookSearch}/>
            <Stack.Screen name="Login" component={LoginScreen} />
-           <Stack.Screen name="Search" component={TextbookSearch}/>
             <Stack.Screen name="TextbookInfo" component={TextbookInfo} />
             <Stack.Screen name="AccountInfo" component={AccountInfo} />
             <Stack.Screen name="Confirmed" component={OrderConfirmed} />
