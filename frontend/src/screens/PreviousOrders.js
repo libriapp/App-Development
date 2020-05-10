@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Image} from 'react-native';
+import FlatButton from "../components/FlatButton";
 
 export default class Prev extends Component {
     state = {
         textbookName: 'Campbell Biology (11th Revised Edition)',
     }
+    clickHandler = () => {
+        this.props.navigation.navigate('Search');
+   }
     render() {
     return(
         <View style={styles.container}>
@@ -22,6 +26,12 @@ export default class Prev extends Component {
                     source={require ("../../assets/textbookPicture.jpg")}
                     />
                 </View>
+            </View>
+            <View style = {styles.homeButton}>
+                <FlatButton
+                    text = 'Back to Home'
+                    onPress = {this.clickHandler}
+                    />
             </View>
         </View>
         );
@@ -41,7 +51,10 @@ export default class Prev extends Component {
             color: '#FFF',
             fontSize: 40,
         },
-
+        homeButton: {
+            width: 350,
+            marginTop: 20,
+        },
         container: {
             flex: 1,
             backgroundColor: '#EA6E6E',
